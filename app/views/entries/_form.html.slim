@@ -1,0 +1,13 @@
+- @entry.errors.full_messages.each do |message|
+  p = message
+hr
+= form_for [@game, @entry] do |f|
+  p = f.label :name, "Entry Name"
+  p = f.text_field :name
+  = f.fields_for :groups do |ff|
+    p = ff.label :name, "Group Name"
+    p = ff.text_field :name
+    p = ff.fields_for :matches do |fff|
+      p = fff.label :name, "Match Name"
+      p = fff.text_field :name
+  p = f.submit
